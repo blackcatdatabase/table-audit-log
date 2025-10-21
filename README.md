@@ -2,7 +2,7 @@
 
 ![SQL](https://img.shields.io/badge/SQL-MySQL%208.0%2B-4479A1?logo=mysql&logoColor=white) ![License](https://img.shields.io/badge/license-BlackCat%20Proprietary-red) ![Status](https://img.shields.io/badge/status-stable-informational) ![Generated](https://img.shields.io/badge/generated-from%20schema--map-blue)
 
-> Schema package for table **audit_log** (repo: $slug).
+> Schema package for table **audit_log** (repo: `audit-log`).
 
 ## Files
 ```
@@ -41,7 +41,7 @@ mysql -h 127.0.0.1 -P 3307 -u root -proot app < schema/030_foreign_keys.sql
 | table_name | VARCHAR(100) | NO | — |  |
 | record_id | BIGINT UNSIGNED | NO | — |  |
 | changed_by | BIGINT UNSIGNED | YES | — |  |
-| change_type | ENUM(''INSERT'',''UPDATE'',''DELETE'') | NO | — |  |
+| change_type | ENUM('INSERT','UPDATE','DELETE') | NO | — |  |
 | old_value | JSON | YES | — |  |
 | new_value | JSON | YES | — |  |
 | changed_at | DATETIME(6) | NO | CURRENT_TIMESTAMP(6) |  |
@@ -55,17 +55,17 @@ mysql -h 127.0.0.1 -P 3307 -u root -proot app < schema/030_foreign_keys.sql
 ```mermaid
 erDiagram
   AUDIT_LOG {
-    BIGINT id PK
-    VARCHAR(100) table_name
-    BIGINT record_id
-    BIGINT changed_by
-    ENUM(''INSERT'',''UPDATE'',''DELETE'') change_type
+    INT id PK
+    VARCHAR table_name
+    INT record_id
+    INT changed_by
+    ENUM change_type
     JSON old_value
     JSON new_value
-    DATETIME(6) changed_at
-    VARBINARY(16) ip_bin
-    VARCHAR(1024) user_agent
-    VARCHAR(100) request_id
+    DATETIME changed_at
+    BLOB ip_bin
+    VARCHAR user_agent
+    VARCHAR request_id
   }
   AUDIT_LOG }o--|| USERS : "changed_by"
 ```
