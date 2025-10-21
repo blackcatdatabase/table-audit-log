@@ -67,7 +67,7 @@ erDiagram
     VARCHAR(1024) user_agent
     VARCHAR(100) request_id
   }
-  AUDIT_LOG }o--|| USERS : (changed_by)
+  AUDIT_LOG }o--|| USERS : "changed_by"
 ```
 
 ## Indexes
