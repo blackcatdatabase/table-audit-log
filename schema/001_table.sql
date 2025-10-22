@@ -5,7 +5,7 @@ CREATE TABLE IF NOT EXISTS audit_log (
   table_name VARCHAR(100) NOT NULL,
   record_id BIGINT UNSIGNED NOT NULL,
   changed_by BIGINT UNSIGNED NULL,
-  change_type ENUM(''INSERT'',''UPDATE'',''DELETE'') NOT NULL,
+  change_type ENUM('INSERT','UPDATE','DELETE') NOT NULL,
   old_value JSON NULL,
   new_value JSON NULL,
   changed_at DATETIME(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6),
