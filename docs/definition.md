@@ -1,4 +1,4 @@
-<!-- Auto-generated from schema-map.psd1 @ 1e83bb6 (2025-10-21T10:18:36+02:00) -->
+<!-- Auto-generated from schema-defs.psd1 @ 0d1e984 (2025-10-21T22:04:56+02:00) -->
 # Definition – audit_log
 
 Immutable trail of data changes across tables.
@@ -6,14 +6,3 @@ Immutable trail of data changes across tables.
 ## Columns
 | Column | Type | Null | Default | Description | Notes |
 |-------:|:-----|:----:|:--------|:------------|:------|
-| id | BIGINT UNSIGNED | — | — | Surrogate primary key. |  |
-| table_name | VARCHAR(100) | NO | — | Target table name. |  |
-| record_id | BIGINT UNSIGNED | NO | — | Primary key of the affected record. |  |
-| changed_by | BIGINT UNSIGNED | YES | — | Actor user id (FK users.id) or NULL for system. |  |
-| change_type | ENUM('INSERT','UPDATE','DELETE') | NO | — | Type of change. | enum: INSERT, UPDATE, DELETE |
-| old_value | JSON | YES | — | JSON snapshot before change. |  |
-| new_value | JSON | YES | — | JSON snapshot after change. |  |
-| changed_at | DATETIME(6) | NO | CURRENT_TIMESTAMP(6) | When change occurred (UTC). |  |
-| ip_bin | VARBINARY(16) | YES | — | Client IP (binary form). |  |
-| user_agent | VARCHAR(1024) | YES | — | Client user agent string. |  |
-| request_id | VARCHAR(100) | YES | — | Correlation/request id if available. |  |
