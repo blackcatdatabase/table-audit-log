@@ -3,7 +3,7 @@ declare(strict_types=1);
 
 namespace BlackCat\Database\Packages\AuditLog\Service;
 
-use BlackCat\Core\Database\Database;
+use BlackCat\Core\Database;
 use BlackCat\Database\Packages\AuditLog\Dto\AuditLogDto;
 use BlackCat\Database\Packages\AuditLog\Mapper\AuditLogDtoMapper;
 use BlackCat\Database\Packages\AuditLog\Repository\AuditLogRepository;
