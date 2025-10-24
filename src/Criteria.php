@@ -6,7 +6,7 @@ namespace BlackCat\Database\Packages\AuditLog;
 /**
  * Bezpečný builder WHERE/ORDER/LIMIT.
  * - whitelist filtrů: [ 'id', 'table_name', 'record_id', 'changed_by', 'change_type', 'old_value', 'new_value', 'changed_at', 'ip_bin', 'user_agent', 'request_id' ]
- * - whitelist pro LIKE hledání: [ 'table_name', 'user_agent', 'request_id' ]
+ * - whitelist pro LIKE hledání: [ 'table_name', 'change_type', 'user_agent', 'request_id' ]
  */
 final class Criteria {
     /** @var array<string,mixed> */
@@ -61,7 +61,7 @@ final class Criteria {
 
         // fulltext/LIKE (přes whitelist)
         if ($this->search !== null) {
-            $searchCols = [ 'table_name', 'user_agent', 'request_id' ];
+            $searchCols = [ 'table_name', 'change_type', 'user_agent', 'request_id' ];
             $likeParts = [];
             foreach ($searchCols as $i=>$c) {
                 if ($c === '') continue;

@@ -6,7 +6,7 @@ namespace BlackCat\Database\Packages\AuditLog;
 final class Definitions {
     // --- základní metadata ---
     public static function table(): string { return 'audit_log'; }
-    public static function contractView(): string { return 'v_audit_log_contract'; }
+    public static function contractView(): string { return 'vw_audit_log'; }
     /** @return string[] */
     public static function columns(): array { return [ 'id', 'table_name', 'record_id', 'changed_by', 'change_type', 'old_value', 'new_value', 'changed_at', 'ip_bin', 'user_agent', 'request_id' ]; }
     public static function pk(): string { return 'id'; }
