@@ -1,4 +1,4 @@
--- Auto-generated from schema-map-mysql.psd1 (map@c5e4097)
+-- Auto-generated from schema-map-mysql.psd1 (map@db2f8b8)
 -- engine: mysql
 -- table:  audit_log
 CREATE INDEX idx_audit_table_record ON audit_log (table_name, record_id, changed_at);

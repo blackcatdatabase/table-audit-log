@@ -1,4 +1,4 @@
--- Auto-generated from schema-views-postgres.psd1 (map@c5e4097)
+-- Auto-generated from schema-views-postgres.psd1 (map@db2f8b8)
 -- engine: postgres
 -- table:  audit_log
 -- Contract view for [audit_log]
@@ -12,7 +12,7 @@ SELECT
   change_type,
   changed_at,
   ip_bin,
-  encode(ip_bin, 'hex') AS ip_bin_hex,
+  UPPER(encode(ip_bin,'hex'))::char(32) AS ip_bin_hex,
   user_agent,
   request_id
 FROM audit_log;
