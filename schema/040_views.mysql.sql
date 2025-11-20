@@ -1,4 +1,4 @@
--- Auto-generated from schema-views-mysql.psd1 (map@db2f8b8)
+-- Auto-generated from schema-views-mysql.psd1 (map@62c9c93)
 -- engine: mysql
 -- table:  audit_log_activity_daily
 -- Daily audit activity split by change type
@@ -13,7 +13,7 @@ FROM audit_log
 GROUP BY day
 ORDER BY day DESC;
 
--- Auto-generated from schema-views-mysql.psd1 (map@db2f8b8)
+-- Auto-generated from schema-views-mysql.psd1 (map@62c9c93)
 -- engine: mysql
 -- table:  audit_log
 -- Contract view for [audit_log]

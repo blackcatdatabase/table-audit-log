@@ -1,4 +1,4 @@
--- Auto-generated from schema-views-postgres.psd1 (map@9d3471b)
+-- Auto-generated from schema-views-postgres.psd1 (map@62c9c93)
 -- engine: postgres
 -- table:  audit_log_activity_daily
 -- Daily audit activity split by change type
@@ -13,7 +13,7 @@ FROM audit_log
 GROUP BY 1
 ORDER BY day DESC;
 
--- Auto-generated from schema-views-postgres.psd1 (map@9d3471b)
+-- Auto-generated from schema-views-postgres.psd1 (map@62c9c93)
 -- engine: postgres
 -- table:  audit_log
 -- Contract view for [audit_log]
