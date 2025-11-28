@@ -17,7 +17,7 @@ use BlackCat\Database\Support\DtoHydrator;
 final class AuditLogDtoMapper
 {
     /** @var array<string,string> Column -> DTO property */
-    private const COL_TO_PROP = [ 'table_name' => 'tableName', 'record_id' => 'recordId', 'changed_by' => 'changedBy', 'change_type' => 'changeType', 'old_value' => 'oldValue', 'new_value' => 'newValue', 'changed_at' => 'changedAt', 'ip_bin' => 'ipBin', 'user_agent' => 'userAgent', 'request_id' => 'requestId' ];
+    private const COL_TO_PROP = [ 'id' => 'id', 'table_name' => 'tableName', 'record_id' => 'recordId', 'changed_by' => 'changedBy', 'change_type' => 'changeType', 'old_value' => 'oldValue', 'new_value' => 'newValue', 'changed_at' => 'changedAt', 'ip_bin' => 'ipBin', 'user_agent' => 'userAgent', 'request_id' => 'requestId' ];
 
     /** @var string[] */
     private const BOOL_COLS   = [];
