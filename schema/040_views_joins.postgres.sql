@@ -1,15 +1,15 @@
--- Auto-generated from joins-postgres.psd1 (map@mtime:2025-11-27T17:17:38Z)
+-- Auto-generated from joins-postgres.yaml (map@94ebe6c)
 -- engine: postgres
 -- view:   audit_log_activity_daily
 
 -- Daily audit activity split by change type
 CREATE OR REPLACE VIEW vw_audit_activity_daily AS
 SELECT
-  date_trunc(''day'', changed_at) AS day,
+  date_trunc($$day$$, changed_at) AS day,
   COUNT(*) AS total,
-  COUNT(*) FILTER (WHERE change_type=''INSERT'') AS inserts,
-  COUNT(*) FILTER (WHERE change_type=''UPDATE'') AS updates,
-  COUNT(*) FILTER (WHERE change_type=''DELETE'') AS deletes
+  COUNT(*) FILTER (WHERE change_type=$$INSERT$$) AS inserts,
+  COUNT(*) FILTER (WHERE change_type=$$UPDATE$$) AS updates,
+  COUNT(*) FILTER (WHERE change_type=$$DELETE$$) AS deletes
 FROM audit_log
 GROUP BY 1
 ORDER BY day DESC;
