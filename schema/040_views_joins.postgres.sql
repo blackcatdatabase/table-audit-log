@@ -1,6 +1,6 @@
 -- Auto-generated from joins-postgres.yaml (map@85230ed)
 -- engine: postgres
--- view:   audit_log_activity_daily
+-- view:   audit_activity_daily
 
 -- Daily audit activity split by change type
 CREATE OR REPLACE VIEW vw_audit_activity_daily AS
