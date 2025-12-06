@@ -17,3 +17,4 @@ SELECT
   user_agent,
   request_id
 FROM audit_log;
+
