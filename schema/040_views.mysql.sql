@@ -1,21 +1,7 @@
--- Auto-generated from schema-views-mysql.psd1 (map@62c9c93)
--- engine: mysql
--- table:  audit_log_activity_daily
--- Daily audit activity split by change type
-CREATE OR REPLACE ALGORITHM=MERGE SQL SECURITY INVOKER VIEW vw_audit_activity_daily AS
-SELECT
-  DATE(changed_at) AS day,
-  COUNT(*) AS total,
-  SUM(CASE WHEN change_type = 'INSERT' THEN 1 ELSE 0 END) AS inserts,
-  SUM(CASE WHEN change_type = 'UPDATE' THEN 1 ELSE 0 END) AS updates,
-  SUM(CASE WHEN change_type = 'DELETE' THEN 1 ELSE 0 END) AS deletes
-FROM audit_log
-GROUP BY day
-ORDER BY day DESC;
-
--- Auto-generated from schema-views-mysql.psd1 (map@62c9c93)
+-- Auto-generated from schema-views-mysql.yaml (map@sha1:A4E10261DACB7519F6FEA44ED77A92163429CA5E)
 -- engine: mysql
 -- table:  audit_log
+
 -- Contract view for [audit_log]
 -- Omits old_value/new_value JSON; adds ip_pretty from ip_bin.
 CREATE OR REPLACE ALGORITHM=MERGE SQL SECURITY INVOKER VIEW vw_audit_log AS
