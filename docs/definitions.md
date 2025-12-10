@@ -5,9 +5,9 @@ Immutable trail of data changes across tables.
 ## Columns
 | Column | Type | Null | Default | Description |
 | --- | --- | --- | --- | --- |
-| change_type | mysql: ENUM('INSERT','UPDATE','DELETE') / postgres: TEXT | NO |  | Type of change. (enum: INSERT, UPDATE, DELETE) |
 | changed_at | mysql: DATETIME(6) / postgres: TIMESTAMPTZ(6) | NO | CURRENT_TIMESTAMP(6) | When change occurred (UTC). |
 | changed_by | BIGINT | YES |  | Actor user id (FK users.id) or NULL for system. |
+| change_type | mysql: ENUM('INSERT','UPDATE','DELETE') / postgres: TEXT | NO |  | Type of change. (enum: INSERT, UPDATE, DELETE) |
 | id | BIGINT | NO |  | Surrogate primary key. |
 | ip_bin | mysql: VARBINARY(16) / postgres: BYTEA | YES |  | Client IP (binary form). |
 | new_value | mysql: JSON / postgres: JSONB | YES |  | JSON snapshot after change. |
