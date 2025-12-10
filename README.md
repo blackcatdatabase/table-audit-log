@@ -98,8 +98,8 @@ graph LR
 _No engine differences detected._
 
 ## Constraints Snapshot
-- `changed_at` – default=CURRENT_TIMESTAMP(6)
 - `change_type` – enum
+- `changed_at` – default=CURRENT_TIMESTAMP(6)
 
 ## Schema Files
 | File | Engine |
