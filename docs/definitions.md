@@ -5,13 +5,13 @@ Immutable trail of data changes across tables.
 ## Columns
 | Column | Type | Null | Default | Description |
 | --- | --- | --- | --- | --- |
-| change_type | ENUM('INSERT','UPDATE','DELETE') | NO |  | Type of change. (enum: INSERT, UPDATE, DELETE) |
-| changed_at | DATETIME(6) | NO | CURRENT_TIMESTAMP(6) | When change occurred (UTC). |
+| change_type | mysql: ENUM('INSERT','UPDATE','DELETE') / postgres: TEXT | NO |  | Type of change. (enum: INSERT, UPDATE, DELETE) |
+| changed_at | mysql: DATETIME(6) / postgres: TIMESTAMPTZ(6) | NO | CURRENT_TIMESTAMP(6) | When change occurred (UTC). |
 | changed_by | BIGINT | YES |  | Actor user id (FK users.id) or NULL for system. |
 | id | BIGINT | NO |  | Surrogate primary key. |
-| ip_bin | VARBINARY(16) | YES |  | Client IP (binary form). |
-| new_value | JSON | YES |  | JSON snapshot after change. |
-| old_value | JSON | YES |  | JSON snapshot before change. |
+| ip_bin | mysql: VARBINARY(16) / postgres: BYTEA | YES |  | Client IP (binary form). |
+| new_value | mysql: JSON / postgres: JSONB | YES |  | JSON snapshot after change. |
+| old_value | mysql: JSON / postgres: JSONB | YES |  | JSON snapshot before change. |
 | record_id | BIGINT | NO |  | Primary key of the affected record. |
 | request_id | VARCHAR(100) | YES |  | Correlation/request id if available. |
 | table_name | VARCHAR(100) | NO |  | Target table name. |
