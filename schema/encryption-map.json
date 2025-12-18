@@ -1,0 +1,47 @@
+{
+  "tables": {
+    "audit_log": {
+      "columns": {
+        "change_type": {
+          "strategy": "passthrough"
+        },
+        "changed_at": {
+          "strategy": "passthrough"
+        },
+        "changed_by": {
+          "strategy": "passthrough"
+        },
+        "id": {
+          "strategy": "passthrough"
+        },
+        "ip_bin": {
+          "context": "db.hmac.audit_log.ip_bin",
+          "key_version_column": "ip_bin_key_version",
+          "strategy": "hmac",
+          "write_key_version": true
+        },
+        "ip_bin_key_version": {
+          "strategy": "passthrough"
+        },
+        "new_value": {
+          "strategy": "passthrough"
+        },
+        "old_value": {
+          "strategy": "passthrough"
+        },
+        "record_id": {
+          "strategy": "passthrough"
+        },
+        "request_id": {
+          "strategy": "passthrough"
+        },
+        "table_name": {
+          "strategy": "passthrough"
+        },
+        "user_agent": {
+          "strategy": "passthrough"
+        }
+      }
+    }
+  }
+}

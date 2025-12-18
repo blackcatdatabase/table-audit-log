@@ -19,6 +19,7 @@ final class AuditLogDto implements \JsonSerializable {
         public readonly array|null $newValue,
         public readonly \DateTimeImmutable $changedAt,
         public readonly ?string $ipBin,
+        public readonly ?string $ipBinKeyVersion,
         public readonly ?string $userAgent,
         public readonly ?string $requestId
     ) {}
