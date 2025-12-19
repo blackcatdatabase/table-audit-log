@@ -32,20 +32,20 @@ final class Criteria extends BaseCriteria
     /** Columns that are safe to use inside WHERE filters. */
     protected function filterable(): array
     {
-        return [ 'id', 'table_name', 'record_id', 'changed_by', 'change_type', 'old_value', 'new_value', 'changed_at', 'ip_bin', 'user_agent', 'request_id' ];
+        return [ 'id', 'table_name', 'record_id', 'changed_by', 'change_type', 'old_value', 'new_value', 'changed_at', 'ip_bin', 'ip_bin_key_version', 'user_agent', 'request_id' ];
     }
 
     /** Columns used for full-text LIKE/ILIKE searches. */
     protected function searchable(): array
     {
-        return [ 'table_name', 'user_agent', 'request_id' ];
+        return [ 'table_name', 'ip_bin_key_version', 'user_agent', 'request_id' ];
     }
 
-/** Columns allowed in ORDER BY (falls back to filterable() when empty). */
-protected function sortable(): array
-{
-    return [ 'id', 'table_name', 'record_id', 'changed_by', 'change_type', 'changed_at', 'user_agent', 'request_id' ];
-}
+    /** Columns allowed in ORDER BY (falls back to filterable() when empty). */
+    protected function sortable(): array
+    {
+        return [ 'id', 'table_name', 'record_id', 'changed_by', 'change_type', 'changed_at', 'ip_bin_key_version', 'user_agent', 'request_id' ];
+    }
 
     /**
      * Whitelist of joinable entities (for safe ->join() usage):

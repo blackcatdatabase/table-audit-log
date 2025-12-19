@@ -3,19 +3,20 @@
 Immutable trail of data changes across tables.
 
 ## Columns
-| Column | Type | Null | Default | Description |
-| --- | --- | --- | --- | --- |
-| id | BIGINT | NO |  | Surrogate primary key. |
-| table_name | VARCHAR(100) | NO |  | Target table name. |
-| record_id | BIGINT | NO |  | Primary key of the affected record. |
-| changed_by | BIGINT | YES |  | Actor user id (FK users.id) or NULL for system. |
-| change_type | mysql: ENUM('INSERT','UPDATE','DELETE') / postgres: TEXT | NO |  | Type of change. (enum: INSERT, UPDATE, DELETE) |
-| old_value | mysql: JSON / postgres: JSONB | YES |  | JSON snapshot before change. |
-| new_value | mysql: JSON / postgres: JSONB | YES |  | JSON snapshot after change. |
-| changed_at | mysql: DATETIME(6) / postgres: TIMESTAMPTZ(6) | NO | CURRENT_TIMESTAMP(6) | When change occurred (UTC). |
-| ip_bin | mysql: VARBINARY(16) / postgres: BYTEA | YES |  | Client IP (binary form). |
-| user_agent | VARCHAR(1024) | YES |  | Client user agent string. |
-| request_id | VARCHAR(100) | YES |  | Correlation/request id if available. |
+| Column | Type | Null | Default | Description | Crypto |
+| --- | --- | --- | --- | --- | --- |
+| id | BIGINT | NO |  | Surrogate primary key. |  |
+| table_name | VARCHAR(100) | NO |  | Target table name. |  |
+| record_id | BIGINT | NO |  | Primary key of the affected record. |  |
+| changed_by | BIGINT | YES |  | Actor user id (FK users.id) or NULL for system. |  |
+| change_type | mysql: ENUM('INSERT','UPDATE','DELETE') / postgres: TEXT | NO |  | Type of change. (enum: INSERT, UPDATE, DELETE) |  |
+| old_value | mysql: JSON / postgres: JSONB | YES |  | JSON snapshot before change. |  |
+| new_value | mysql: JSON / postgres: JSONB | YES |  | JSON snapshot after change. |  |
+| changed_at | mysql: DATETIME(6) / postgres: TIMESTAMPTZ(6) | NO | CURRENT_TIMESTAMP(6) | When change occurred (UTC). |  |
+| ip_bin | mysql: BINARY(32) / postgres: BYTEA | YES |  | Client IP (binary form). | `hmac`<br/>ctx: `db.hmac.audit_log.ip_bin`<br/>kv: `ip_bin_key_version` |
+| ip_bin_key_version | VARCHAR(64) | YES |  | Key version for ip_bin. | key version for: `ip_bin` |
+| user_agent | VARCHAR(1024) | YES |  | Client user agent string. |  |
+| request_id | VARCHAR(100) | YES |  | Correlation/request id if available. |  |
 
 ## Engine Details
 

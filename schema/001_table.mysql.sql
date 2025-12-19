@@ -1,4 +1,4 @@
--- Auto-generated from schema-map-mysql.yaml (map@sha1:09DF9CA612D1573E058190CC207FA257C05AEC1F)
+-- Auto-generated from schema-map-mysql.yaml (map@sha1:0D716345C0228A9FD8972A3D31574000D05317DB)
 -- engine: mysql
 -- table:  audit_log
 
@@ -11,7 +11,8 @@ CREATE TABLE IF NOT EXISTS audit_log (
   old_value JSON NULL,
   new_value JSON NULL,
   changed_at DATETIME(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6),
-  ip_bin VARBINARY(16) NULL,
+  ip_bin BINARY(32) NULL,
+  ip_bin_key_version VARCHAR(64) NULL,
   user_agent VARCHAR(1024) NULL,
   request_id VARCHAR(100) NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=DYNAMIC;

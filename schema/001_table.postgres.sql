@@ -1,4 +1,4 @@
--- Auto-generated from schema-map-postgres.yaml (map@sha1:6D9B52237D942B2B3855FD0F5500331B935A7C62)
+-- Auto-generated from schema-map-postgres.yaml (map@sha1:8C4F2BC1C4D22EE71E27B5A7968C71E32D8D884D)
 -- engine: postgres
 -- table:  audit_log
 
@@ -12,6 +12,7 @@ CREATE TABLE IF NOT EXISTS audit_log (
   new_value JSONB NULL,
   changed_at TIMESTAMPTZ(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6),
   ip_bin BYTEA NULL,
+  ip_bin_key_version VARCHAR(64) NULL,
   user_agent VARCHAR(1024) NULL,
   request_id VARCHAR(100) NULL,
   CONSTRAINT chk_audit_change_type CHECK (change_type IN ('INSERT','UPDATE','DELETE'))
